@@ -1,0 +1,1 @@
+<?php return '{"apiVersion":"1","swaggerVersion":"1.1","basePath":"http:\\/\\/localhost\\/bocarest","produces":["application\\/json"],"consumes":["application\\/json"],"apis":[{"path":"\\/resources\\/usuario.{format}","description":"Created by PhpStorm."}]}';
