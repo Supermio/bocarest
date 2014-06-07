@@ -43,6 +43,114 @@ $o['v1']['usuario'] = array (
     ),
 );
 
+//==== v1 usuario/locales ====
+
+$o['v1']['usuario/locales'] = array (
+    'GET' => 
+    array (
+        'url' => 'usuario/locales',
+        'className' => 'usuario',
+        'path' => 'usuario',
+        'methodName' => 'getLocales',
+        'arguments' => 
+        array (
+        ),
+        'defaults' => 
+        array (
+        ),
+        'metadata' => 
+        array (
+            'description' => 'Created by PhpStorm.',
+            'longDescription' => 'User: victormanuel Date: 03/06/14 Time: 04:04 AM',
+            'scope' => 
+            array (
+                '*' => '',
+            ),
+            'resourcePath' => 'usuario/',
+            'classDescription' => 'Created by PhpStorm.',
+            'param' => 
+            array (
+            ),
+            'return' => 
+            array (
+                'type' => 'array',
+            ),
+        ),
+        'accessLevel' => 0,
+    ),
+);
+
+//==== v1 usuario/instructor ====
+
+$o['v1']['usuario/instructor'] = array (
+    'GET' => 
+    array (
+        'url' => 'usuario/instructor',
+        'className' => 'usuario',
+        'path' => 'usuario',
+        'methodName' => 'getInstructor',
+        'arguments' => 
+        array (
+            'usuario' => 0,
+            'clave' => 1,
+        ),
+        'defaults' => 
+        array (
+            0 => NULL,
+            1 => NULL,
+        ),
+        'metadata' => 
+        array (
+            'description' => 'Created by PhpStorm.',
+            'longDescription' => 'User: victormanuel Date: 03/06/14 Time: 04:04 AM',
+            'scope' => 
+            array (
+                '*' => '',
+            ),
+            'resourcePath' => 'usuario/',
+            'classDescription' => 'Created by PhpStorm.',
+            'param' => 
+            array (
+                0 => 
+                array (
+                    'name' => 'usuario',
+                    'label' => 'Usuario',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+                1 => 
+                array (
+                    'name' => 'clave',
+                    'label' => 'Clave',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+            ),
+            'return' => 
+            array (
+                'type' => 'array',
+            ),
+        ),
+        'accessLevel' => 0,
+    ),
+);
+
 //==== v1 resources/{s0} ====
 
 $o['v1']['resources/{s0}'] = array (

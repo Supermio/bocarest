@@ -157,12 +157,12 @@ class MetaData extends dataConn {
             error_log('valid access si hay regs');
         }
         error_log('valid access: ya pase la validacion:'.$res);
-        return $res;
+        return $row_rs;
     }
 
-    public function getApps($deviceID){
-        $query = sprintf("SELECT a.appID, a.appNombre, a.appCompania, a.appVersion FROM App a,DispApp b WHERE a.appID = b.appID AND b.dispID = %s",
-            GetSQLValueString($deviceID,"int"));
+    public function getLocales(){
+        $query = sprintf("SELECT idLocal,nombre,distrito FROM local WHERE estado_idestado=%d",
+            GetSQLValueString('1',"int"));
         $row_rs = $this->getRS($query);
         return $row_rs;
     }

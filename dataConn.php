@@ -100,7 +100,7 @@ class dataConn {
         $res='';
         if ($totalRows > 0){
             $res = $row[0];
-        } else $res = $sql;
+        } else $res = 'NO';
         return $res;
     }
 }
