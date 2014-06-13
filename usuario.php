@@ -8,6 +8,9 @@ require("datamodel.php");
  * Time: 04:04 AM
  */
 class usuario{
+    function __construct(){
+    header('Access-Control-Allow-Origin: *'); //Here for all /say
+    }
     function get(){
         return "supermio";
     }
@@ -16,6 +19,9 @@ class usuario{
     }
     function getInstructor($usuario,$clave){
         return getInstructor($usuario,$clave);
+    }
+    function getHorarios($idInstructor){
+        return getHorarios($idInstructor);
     }
 }
 ?>

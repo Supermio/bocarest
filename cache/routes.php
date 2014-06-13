@@ -151,6 +151,60 @@ $o['v1']['usuario/instructor'] = array (
     ),
 );
 
+//==== v1 usuario/horarios ====
+
+$o['v1']['usuario/horarios'] = array (
+    'GET' => 
+    array (
+        'url' => 'usuario/horarios',
+        'className' => 'usuario',
+        'path' => 'usuario',
+        'methodName' => 'getHorarios',
+        'arguments' => 
+        array (
+            'idInstructor' => 0,
+        ),
+        'defaults' => 
+        array (
+            0 => NULL,
+        ),
+        'metadata' => 
+        array (
+            'description' => 'Created by PhpStorm.',
+            'longDescription' => 'User: victormanuel Date: 03/06/14 Time: 04:04 AM',
+            'scope' => 
+            array (
+                '*' => '',
+            ),
+            'resourcePath' => 'usuario/',
+            'classDescription' => 'Created by PhpStorm.',
+            'param' => 
+            array (
+                0 => 
+                array (
+                    'name' => 'idInstructor',
+                    'label' => 'Id Instructor',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+            ),
+            'return' => 
+            array (
+                'type' => 'array',
+            ),
+        ),
+        'accessLevel' => 0,
+    ),
+);
+
 //==== v1 resources/{s0} ====
 
 $o['v1']['resources/{s0}'] = array (

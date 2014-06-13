@@ -142,7 +142,7 @@ class MetaData extends dataConn {
 
     public function validAccess($usuario,$clave) {
         $res=0;
-        $query = sprintf("select idOperador,usuario, clave from operador where  usuario=%s and clave=%s",
+        $query = sprintf("select concat(idOperador,':',usuario,':',completo,':',date(now())) as id from vwInstructores where  usuario=%s and clave=%s",
             GetSQLValueString($usuario,"text"),
             GetSQLValueString($clave,"text"));
         error_log('valid access query:'.$query);
@@ -153,11 +153,11 @@ class MetaData extends dataConn {
             error_log('valid access no hay regs');
         }
         else {
-            $res= $row_rs[0];
+            $res= $row_rs;
             error_log('valid access si hay regs');
         }
         error_log('valid access: ya pase la validacion:'.$res);
-        return $row_rs;
+        return $res;
     }
 
     public function getLocales(){
@@ -166,6 +166,13 @@ class MetaData extends dataConn {
         $row_rs = $this->getRS($query);
         return $row_rs;
     }
+    public function getHorarios($idInstructor){
+        $query = sprintf("call getHorariosInstructor(%d)",
+            GetSQLValueString($idInstructor,"int"));
+        $row_rs = $this->getRS($query);
+        return $row_rs;
+    }
+
     public function getMeta($deviceID,$appID){
         error_log('antes del valid access');
         $companiaID = $this->validAccess($deviceID,$appID);

@@ -37,7 +37,13 @@ function getInstructor($usuario,$clave){
     require_once('Connections/baseboca.php');
     $query = "select now()";
     $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
-    $row_rs= $cn->validAccess($usuario,$clave);
+    $res= $cn->validAccess($usuario,$clave);
+    return $res;
+}
+function getHorarios($idInstructor){
+    require_once('Connections/baseboca.php');
+    $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
+    $row_rs= $cn->getHorarios($idInstructor);
     return $row_rs;
 }
 

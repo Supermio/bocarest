@@ -7,7 +7,8 @@
  */
 require_once 'vendor/restler.php';
 use Luracast\Restler\Restler;
-
+Defaults::$crossOriginResourceSharing = true;
+Defaults::$accessControlAllowOrigin = '*';
 $r = new Restler(true,true);
 $r->addAPIClass('usuario');
 $r->addAPIClass('Resources');
