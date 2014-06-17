@@ -163,10 +163,12 @@ $o['v1']['usuario/horarios'] = array (
         'arguments' => 
         array (
             'idInstructor' => 0,
+            'idLocal' => 1,
         ),
         'defaults' => 
         array (
             0 => NULL,
+            1 => NULL,
         ),
         'metadata' => 
         array (
@@ -184,6 +186,163 @@ $o['v1']['usuario/horarios'] = array (
                 array (
                     'name' => 'idInstructor',
                     'label' => 'Id Instructor',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+                1 => 
+                array (
+                    'name' => 'idLocal',
+                    'label' => 'Id Local',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+            ),
+            'return' => 
+            array (
+                'type' => 'array',
+            ),
+        ),
+        'accessLevel' => 0,
+    ),
+);
+
+//==== v1 usuario/alumnado ====
+
+$o['v1']['usuario/alumnado'] = array (
+    'GET' => 
+    array (
+        'url' => 'usuario/alumnado',
+        'className' => 'usuario',
+        'path' => 'usuario',
+        'methodName' => 'getAlumnado',
+        'arguments' => 
+        array (
+            'idInstructor' => 0,
+            'idLocal' => 1,
+        ),
+        'defaults' => 
+        array (
+            0 => NULL,
+            1 => NULL,
+        ),
+        'metadata' => 
+        array (
+            'description' => 'Created by PhpStorm.',
+            'longDescription' => 'User: victormanuel Date: 03/06/14 Time: 04:04 AM',
+            'scope' => 
+            array (
+                '*' => '',
+            ),
+            'resourcePath' => 'usuario/',
+            'classDescription' => 'Created by PhpStorm.',
+            'param' => 
+            array (
+                0 => 
+                array (
+                    'name' => 'idInstructor',
+                    'label' => 'Id Instructor',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+                1 => 
+                array (
+                    'name' => 'idLocal',
+                    'label' => 'Id Local',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+            ),
+            'return' => 
+            array (
+                'type' => 'array',
+            ),
+        ),
+        'accessLevel' => 0,
+    ),
+);
+
+//==== v1 usuario/tablas ====
+
+$o['v1']['usuario/tablas'] = array (
+    'GET' => 
+    array (
+        'url' => 'usuario/tablas',
+        'className' => 'usuario',
+        'path' => 'usuario',
+        'methodName' => 'getTablas',
+        'arguments' => 
+        array (
+            'idInstructor' => 0,
+            'idLocal' => 1,
+        ),
+        'defaults' => 
+        array (
+            0 => NULL,
+            1 => NULL,
+        ),
+        'metadata' => 
+        array (
+            'description' => 'Created by PhpStorm.',
+            'longDescription' => 'User: victormanuel Date: 03/06/14 Time: 04:04 AM',
+            'scope' => 
+            array (
+                '*' => '',
+            ),
+            'resourcePath' => 'usuario/',
+            'classDescription' => 'Created by PhpStorm.',
+            'param' => 
+            array (
+                0 => 
+                array (
+                    'name' => 'idInstructor',
+                    'label' => 'Id Instructor',
+                    'default' => NULL,
+                    'required' => true,
+                    'children' => 
+                    array (
+                    ),
+                    'properties' => 
+                    array (
+                        'from' => 'query',
+                    ),
+                    'type' => 'string',
+                ),
+                1 => 
+                array (
+                    'name' => 'idLocal',
+                    'label' => 'Id Local',
                     'default' => NULL,
                     'required' => true,
                     'children' => 

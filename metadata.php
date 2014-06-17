@@ -26,7 +26,7 @@ if (!function_exists("GetSQLValueString")) {
         return $theValue;
     }
 }
-
+/*
 class TablaInternal {
     private $appID;
     private $tablaID;
@@ -136,13 +136,13 @@ class TablaInternal {
         else $res = $data->getCommand($query);
         return $res;
     }
-}
+}*/
 
 class MetaData extends dataConn {
 
     public function validAccess($usuario,$clave) {
         $res=0;
-        $query = sprintf("select concat(idOperador,':',usuario,':',completo,':',date(now())) as id from vwInstructores where  usuario=%s and clave=%s",
+        $query = sprintf("select concat(idInstructor,':',idOperador,':',usuario,':',completo,':',date(now()),':',idLocal) as id from vwInstructores where  usuario=%s and clave=%s",
             GetSQLValueString($usuario,"text"),
             GetSQLValueString($clave,"text"));
         error_log('valid access query:'.$query);
@@ -161,19 +161,34 @@ class MetaData extends dataConn {
     }
 
     public function getLocales(){
-        $query = sprintf("SELECT idLocal,nombre,distrito FROM local WHERE estado_idestado=%d",
-            GetSQLValueString('1',"int"));
+        $query = sprintf("SELECT idLocal,nombre,distrito FROM vwLocales");
         $row_rs = $this->getRS($query);
         return $row_rs;
     }
-    public function getHorarios($idInstructor){
-        $query = sprintf("call getHorariosInstructor(%d)",
-            GetSQLValueString($idInstructor,"int"));
+    public function getHorarios($idInstructor,$idLocal){
+        $query = sprintf("call getHorariosInstructor(%d,%d)",
+            GetSQLValueString($idInstructor,"int"),
+            GetSQLValueString($idLocal,"int"));
+        $row_rs = $this->getRS($query);
+        return $row_rs;
+    }
+    public function getAlumnado($idInstructor,$idLocal){
+        $query = sprintf("call getAlumnosInstructor(%d,%d)",
+            GetSQLValueString($idInstructor,"int"),
+            GetSQLValueString($idLocal,"int"));
+        $row_rs = $this->getRS($query);
+        return $row_rs;
+    }
+    public function getValores($idInstructor,$idLocal){
+        $query = sprintf("call getValoresInstructor(%d,%d)",
+            GetSQLValueString($idInstructor,"int"),
+            GetSQLValueString($idLocal,"int"));
         $row_rs = $this->getRS($query);
         return $row_rs;
     }
 
-    public function getMeta($deviceID,$appID){
+
+    /*public function getMeta($deviceID,$appID){
         error_log('antes del valid access');
         $companiaID = $this->validAccess($deviceID,$appID);
         error_log('despues del valid access');
@@ -339,6 +354,6 @@ class MetaData extends dataConn {
     function testSQL($deviceID,$userID,$appID,$tablaID,$eventoID,$fecha){
         $tabla = new TablaInternal($this,$appID,$tablaID);
         return $tabla->getSQL($userID,$eventoID,$fecha);
-    }
+    }*/
 }
 ?>

@@ -93,7 +93,7 @@ class dataConn {
     }
     public function getValue($sql){
         $query_rs = $sql;
-        $rs = mysqli_query($this->data,$query_rs) or die(mysqli_error($this->data));
+        $rs = mysqli_query($this->data,$query_rs) or die('NO');
         $row = mysqli_fetch_row($rs);
         $totalRows = mysqli_num_rows($rs);
         mysqli_free_result($rs);

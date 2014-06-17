@@ -27,142 +27,46 @@ class local {
 }
 
 function getLocales(){
+    $row_rs = '';
     require_once('Connections/baseboca.php');
-    $query = "select now()";
     $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
     $row_rs= $cn->getLocales();
     return $row_rs;
 }
 function getInstructor($usuario,$clave){
+    $row_rs = '';
     require_once('Connections/baseboca.php');
-    $query = "select now()";
     $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
     $res= $cn->validAccess($usuario,$clave);
     return $res;
 }
-function getHorarios($idInstructor){
-    require_once('Connections/baseboca.php');
+function getHorarios($idInstructor,$idLocal){
+    $row_rs = '';
+    require('Connections/baseboca.php');
     $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
-    $row_rs= $cn->getHorarios($idInstructor);
+    $row_rs= $cn->getHorarios($idInstructor,$idLocal);
     return $row_rs;
 }
-
-class horario {
-    public $id;
+function getAlumnado($idInstructor,$idLocal){
+    $row_rs = '';
+    require('Connections/baseboca.php');
+    $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
+    $row_rs= $cn->getAlumnado($idInstructor,$idLocal);
+    return $row_rs;
 }
-class table {
-	public $orden;
-	public $regs=array();
+function getValores($idInstructor,$idLocal){
+    $row_rs = '';
+    require('Connections/baseboca.php');
+    $cn= new MetaData($hostname_baseboca,$database_baseboca,$username_baseboca,$password_baseboca);
+    $row_rs= $cn->getValores($idInstructor,$idLocal);
+    return $row_rs;
 }
-
-class tablein {
-	public $nombre;
-	public $orden;
-	public $regs = array();
+function getTablas($idInstructor,$idLocal){
+    error_log('getTablas');
+    $res = new stdClass();
+    $res->Horarios = getHorarios($idInstructor,$idLocal);
+    $res->Alumnos = getAlumnado($idInstructor,$idLocal);
+    $res->Valores = getValores($idInstructor,$idLocal);
+    return $res;
 }
-
-class App {
- public $appID;
- public $appNombre;
- public $appCompania;
- public $appVersion;
- public function __construct($pappID,$pappNombre,$pappCompania,$pappVersion)
-    {
-        $this->appID = $pappID;
-        $this->appNombre = $pappNombre;
-        $this->appCompania = $pappCompania;
-        $this->appVersion = $pappVersion;
-    }
-};
-
-class Tabla {
- public $tablaId;
- public $tablaNombre;
- public $tablaNotes;
- public $appID;
- public $lastSync;
- public function __construct($ptablaId,$ptablaNombre,$ptablaNotes,$pappID,$plastSync)
-    {
-        $this->tablaId= $ptablaId;
-        $this->tablaNombre = $ptablaNombre;
-        $this->tablaNotes = $ptablaNotes;
-        $this->appID = $pappID;
-        $this->lastSync = $plastSync;
-    }
-};
-
-class Regla {
- public $reglaID;
- public $tablaID;
- public $reglaSQL;
- public $eventoID;
- public $reglaNotas;
-};
-
-class Evento {
- public $eventoID;
- public $eventoNombre;
-};
-
-class Grupo {
- public $grupoID;
- public $appID;
- public $grupoNombre;
-};
-class Parametro {
- public $paramID;
- public $paramNombre;
- public $paramValue;
- public $appID;
- public $contentID;
-};
-
-class Contenido {
- public $contentID;
- public $contentNombre;
-};
-
-class Estado {
- public $estadoID;
- public $estadoNombre;
-};
-
-class Proceso {
- public $procesoID;
- public $estadoID;
- public $tipoprocesoID;
- public $appID;
- public $procesoChunk;
- public $procesoChunkTotal;
-};
-
-class TipoProceso {
- public $tipoprocesoID;
- public $tipoprocesoNombre;
- public $tipoprocesoNotas;
-};
-
-class Log {
- public $logId;
- public $logtimestamp;
- public $procesoID;
- public $logValor;
- public $logResult;
-};
-
-class gGlobal {
- public $globalID;
- public $globalNombre;
- public $globalValue;
- public $globalNotes;
- public $contentID;
-};
-
-class Dispositivo {
- public $dispID;
- public $dispNombre;
- public $dispSerie;
- public $dispNotas;
-};
-
 ?>

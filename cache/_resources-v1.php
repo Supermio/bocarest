@@ -1,1 +1,1 @@
-<?php return '{"apiVersion":"1","swaggerVersion":"1.1","basePath":"http:\\/\\/localhost\\/bocarest","produces":["application\\/json"],"consumes":["application\\/json"],"apis":[{"path":"\\/resources\\/usuario.{format}","description":"Created by PhpStorm."}]}';
+<?php return '{"apiVersion":"1","swaggerVersion":"1.1","basePath":"http:\\/\\/192.168.1.6\\/bocarest","produces":["application\\/json"],"consumes":["application\\/json"],"apis":[{"path":"\\/resources\\/usuario.{format}","description":"Created by PhpStorm."}]}';

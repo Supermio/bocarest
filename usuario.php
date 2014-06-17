@@ -20,8 +20,14 @@ class usuario{
     function getInstructor($usuario,$clave){
         return getInstructor($usuario,$clave);
     }
-    function getHorarios($idInstructor){
-        return getHorarios($idInstructor);
+    function getHorarios($idInstructor,$idLocal){
+        return getHorarios($idInstructor,$idLocal);
+    }
+    function getAlumnado($idInstructor,$idLocal){
+        return getAlumnado($idInstructor,$idLocal);
+    }
+    function getTablas($idInstructor,$idLocal){
+        return getTablas($idInstructor,$idLocal);
     }
 }
 ?>
