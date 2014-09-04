@@ -30,4 +30,3 @@ class usuario{
         return getTablas($idInstructor,$idLocal);
     }
 }
-?>
